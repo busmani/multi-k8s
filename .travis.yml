@@ -11,7 +11,7 @@ script:
 
 after_sucess:
   - docker build -t busmani84/multi-client ./client
-  - docker build -t busmani84/multi-nginx ./ngnix
+  - docker build -t busmani84/multi-nginx ./nginx
   - docker build -t busmani84/multi-server ./server
   - docker build -t busmani84/multi-worker ./worker
 
