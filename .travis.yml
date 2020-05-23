@@ -1,0 +1,23 @@
+sudo: required
+services:
+  - docker 
+
+before_install:
+  - docker build -t badarusmani/react-test -f ./cleint/Dockerfile.dev .
+
+script: 
+  - docker run -e CI=true badarusmani/react-test npm test 
+
+after_sucess:
+  - docker build -t badarusmani/multi-client ./client
+  - docker build -t badarusmani/multi-nginx ./ngnix
+  - docker build -t badarusmani/multi-server ./server
+  - docker build -t badarusmani/multi-worker ./worker
+
+  # log in to the docker CLI
+  - echo "$DOCKER_PASSWORD"| docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push badarusmani/multi-client
+  - docker push badarusmani/multi-nginx
+  - docker push badarusmani/multi-server
+  - docker push badarusmani/react-worker
