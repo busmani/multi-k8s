@@ -22,4 +22,3 @@ after_sucess:
   - docker push badarusmani/multi-server
   - docker push badarusmani/react-worker
 
-   ssh_known_hosts:
