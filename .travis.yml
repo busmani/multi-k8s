@@ -18,8 +18,8 @@ after_sucess:
   # log in to the docker CLI
   - echo "$DOCKER_PASSWORD"| docker login -u "$DOCKER_ID" --password-stdin docker.io
   # Take those images and push them to docker hub
-  - docker push badarusmani/multi-client
-  - docker push badarusmani/multi-nginx
-  - docker push badarusmani/multi-server
-  - docker push badarusmani/react-worker
+  - docker push busmani84@hotmail.com/multi-client
+  - docker push busmani84@hotmail.com/multi-nginx
+  - docker push busmani84@hotmail.com/multi-server
+  - docker push busmani84@hotmail.com/react-worker
 
