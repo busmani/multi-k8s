@@ -23,3 +23,18 @@ after_sucess:
   - docker push busmani84/multi-server
   - docker push busmani84/multi-worker
 
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  regin: us-east-1
+  app: multi_docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-us-east-1-077775822785
+  bucket_path: docker-multi
+
+  on:
+    branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+
+ 

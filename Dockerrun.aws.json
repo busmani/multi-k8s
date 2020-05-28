@@ -1,0 +1,44 @@
+{
+	"AWSEBDockerrunVersion": 2,
+	"containerDefinations": [{
+			"name": "client",
+			"image": "busmani84/multi-client",
+			"hostname": "client",
+			"essential": false
+
+
+
+		},
+		{
+			"name": "server",
+			"image": "busmani84/multi-server",
+			"hostname": "api",
+			"essential": false
+		},
+		{
+			"name": "worker",
+			"image": "busmani84/multi-worker",
+			"hostname": "worker",
+			"essential": false
+		},
+
+		{
+			"name": "nginx",
+			"image": "busmani84/multi-ngnix",
+			"hostname": "ngnix",
+			"essential": true,
+			"portMappings": [{
+					"hostPort": 80,
+					"containerPort": 80
+				}
+
+
+
+			],
+			"links": ["client", "server"]
+		}
+
+
+	]
+
+}
