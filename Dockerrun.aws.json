@@ -4,7 +4,8 @@
 			"name": "client",
 			"image": "busmani84/multi-client",
 			"hostname": "client",
-			"essential": false
+			"essential": false,
+            "memory": 128
 
 
 
@@ -13,13 +14,15 @@
 			"name": "server",
 			"image": "busmani84/multi-server",
 			"hostname": "api",
-			"essential": false
+			"essential": false,
+            "memory": 128
 		},
 		{
 			"name": "worker",
 			"image": "busmani84/multi-worker",
 			"hostname": "worker",
-			"essential": false
+			"essential": false,
+            "memory": 128
 		},
 
 		{
@@ -27,6 +30,7 @@
 			"image": "busmani84/multi-ngnix",
 			"hostname": "ngnix",
 			"essential": true,
+            "memory": 128,
 			"portMappings": [{
 					"hostPort": 80,
 					"containerPort": 80
